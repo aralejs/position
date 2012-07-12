@@ -18,6 +18,14 @@
 }
 </style>
 
+<script type="text/javascript">
+seajs.config({
+alias: {
+position: "../src/position"
+}
+})
+</script>
+
 ### 1. 基本情况
 
 <div class="cell">
