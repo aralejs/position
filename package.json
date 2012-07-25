@@ -2,11 +2,10 @@
     "name": "position",
     "version": "0.9.2",
     "dependencies": {
-        "jquery":"jquery/1.7.2/jquery",
-        "base": "0.9.16"
+        "$":"$"
     },
     "output": {
-        "position.js": "default"
+        "position.js": "."
     },
     "tests": [
         "position"

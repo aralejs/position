@@ -1,4 +1,4 @@
-define("#position/0.9.2/position-debug", ["#jquery/1.7.2/jquery-debug"], function(require, exports) {
+define("#position/0.9.2/position-debug", ["$-debug"], function(require, exports) {
 
     // Position
     // --------
@@ -7,7 +7,7 @@ define("#position/0.9.2/position-debug", ["#jquery/1.7.2/jquery-debug"], functio
 
     var Position = exports,
         VIEWPORT = { _id: 'VIEWPORT', nodeType: 1 },
-        $ = require('#jquery/1.7.2/jquery-debug'),
+        $ = require('$-debug'),
         isPinFixed = false,
         isIE6 = $.browser.msie && $.browser.version == 6.0;
 

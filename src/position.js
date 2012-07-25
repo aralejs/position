@@ -7,7 +7,7 @@ define(function(require, exports) {
 
     var Position = exports,
         VIEWPORT = { _id: 'VIEWPORT', nodeType: 1 },
-        $ = require('jquery'),
+        $ = require('$'),
         isPinFixed = false,
         isIE6 = $.browser.msie && $.browser.version == 6.0;
 
