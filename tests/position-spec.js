@@ -6,13 +6,13 @@ define(function(require) {
     describe('position', function() {
 
         var pinElement, baseElement, noopDiv;
-        $(document.body).css('margin', 0);        
+        $(document.body).css('margin', 0);
 
         beforeEach(function() {
-            pinElement = $('<div style="width:100px;height:100px;">pinElement</div>').appendTo(document.body);
+            pinElement = $('<div style="width:100px;height:100px;">pinElement</div>').prependTo(document.body);
             // for ie6 bug
-            noopDiv = $('<div></div>').appendTo(document.body);
-            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;">baseElement</div>').appendTo(document.body);            
+            noopDiv = $('<div></div>').prependTo(document.body);
+            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;">baseElement</div>').prependTo(document.body);            
         });
 
         afterEach(function() {
