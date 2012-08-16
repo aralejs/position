@@ -1,4 +1,4 @@
-define("#position/0.9.2/position-debug", ["$-debug"], function(require, exports) {
+define("#position/1.0.0/position-debug", ["$-debug"], function(require, exports) {
 
     // Position
     // --------

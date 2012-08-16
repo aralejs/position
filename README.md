@@ -14,8 +14,8 @@
 
 ## 模块依赖
 
- - [seajs](seajs/README.md)
- - [jquery](jquery/README.md)
+ - seajs
+ - jquery
 
 
 ## 使用说明
@@ -106,16 +106,6 @@
 
  - IE8 下，当文档流中定位元素在基准元素的相邻前方时，基准元素有可能会因为未 reflow
 而导致 margin-top 失效，所以要尽量避免定位元素与基准元素相邻并在其之前。
-
-
-## 演示页面
-
- - <http://aralejs.org/lib/position/examples/position.html>
-
-
-## 测试用例
-
-- <http://aralejs.org/lib/position/tests/runner.html>
 
 
 ## 交流讨论
