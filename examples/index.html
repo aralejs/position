@@ -6,8 +6,6 @@
 <title>Position</title>
 <link rel="stylesheet" href="http://aralejs.org/assets/base.css">
 <link rel="stylesheet" href="http://aralejs.org/assets/style.css">
-<link rel="stylesheet" href="http://aralejs.org/assets/pygments.css">
-<link rel="stylesheet" href="http://aralejs.org/assets/fontawesome/css/font-awesome.css">
 <script src="http://seajs.org/dist/sea.js"></script>
 
 <script src="http://aralejs.org/tools/seajs-helper.js"></script>
@@ -24,13 +22,13 @@
     <a href="../examples/" class="current">Examples</a>
     
     
-    <a id="nav-test" target="_blank" href="../tests/runner.html">Tests</a>
+    <a id="nav-test" href="../tests/runner.html">Tests</a>
     
 
 
         <nav role="navigation" id="nav">
-            <a class="icon-home" title="Home" href="/" id="logo">Home</a>
-            <a class="icon-github" href="https://github.com/aralejs/position">Code</a>
+            <a class="icon-home" target="_blank" title="Home" href="/" id="logo">Home</a>
+            <a id="code-link" class="icon-github" target="_blank" href="https://github.com/aralejs/position">Code</a>
         </nav>
     </div>
 </header>
@@ -78,12 +76,6 @@ position: "../src/position"
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a1', {element: '#b1', x: '50px', y: '50px'});
-});
-</script>
-
 <h3>2. 目标元素的offsetParent不为body</h3>
 
 <div class="cell">
@@ -97,12 +89,6 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a2', {element: '#b2', x: 50, y: 50});
-});
-</script>
-
 <h3>3. 目标元素带偏移量</h3>
 
 <div class="cell">
@@ -113,12 +99,6 @@ seajs.use(['position'], function(Position) {
     <span class="nx">Position</span><span class="p">.</span><span class="nx">pin</span><span class="p">({</span><span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;#a3&#39;</span><span class="p">,</span> <span class="nx">x</span><span class="o">:</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="o">-</span><span class="mi">50</span><span class="p">},</span> <span class="p">{</span><span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;#b3&#39;</span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
-
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin({element: '#a3', x: -50, y: -50}, {element: '#b3'});
-});
-</script>
 
 <h3>4. 偏移量为left|center|top|%的情况</h3>
 
@@ -131,12 +111,6 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin({element: '#a4', x: 'center', y: '50%'}, {element: '#b4', x: '100%', y: '50%'});
-});
-</script>
-
 <h3>5. 定位到元素中央</h3>
 
 <div class="cell">
@@ -147,12 +121,6 @@ seajs.use(['position'], function(Position) {
     <span class="nx">Position</span><span class="p">.</span><span class="nx">center</span><span class="p">(</span><span class="s1">&#39;#a5&#39;</span><span class="p">,</span> <span class="s1">&#39;#b5&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
-
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.center('#a5', '#b5');
-});
-</script>
 
 <h3>6. 相对可见区域定位</h3>
 
@@ -169,16 +137,6 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a6', {x: 50,y: 50});
-
-    document.getElementById('J_rePosition6').onclick = function() {
-        Position.pin('#a6', {x: 50,y: 50});
-    };
-});
-</script>
-
 <h3>7. 定位到屏幕中央</h3>
 
 <div class="cell">
@@ -194,16 +152,6 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.center('#a7');
-
-    document.getElementById('J_rePosition7').onclick = function() {
-        Position.center('#a7');
-    };
-});
-</script>
-
 <h3>8. 处理类似于100%+20px这样的定位</h3>
 
 <div class="cell">
@@ -215,12 +163,6 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a8', {element: '#b8', x: '100%+50px', y: '50%-50'});
-});
-</script>
-
 <h3>9. 相对于自身定位</h3>
 
 <div class="cell">
@@ -230,12 +172,6 @@ seajs.use(['position'], function(Position) {
     <span class="nx">Position</span><span class="p">.</span><span class="nx">pin</span><span class="p">(</span><span class="s1">&#39;#a9&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;#a9&#39;</span><span class="p">,</span> <span class="nx">x</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="s1">&#39;-100%&#39;</span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
-
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a9', {element: '#a9', x: '100%', y: '-100%'});
-});
-</script>
 
 <h3>10. 定位fixed元素</h3>
 
@@ -247,16 +183,15 @@ seajs.use(['position'], function(Position) {
 <span class="p">});</span>
 </pre></div>
 
-<script type="text/javascript">
-seajs.use(['position'], function(Position) {
-    Position.pin('#a10', { x: 400, y: 0 });
-});
-</script>
-
 </div>
 
     </div>
 </div>
 <hr class="end">
+<link rel="stylesheet" href="http://aralejs.org/assets/pygments.css">
+<link rel="stylesheet" href="http://aralejs.org/assets/fontawesome/css/font-awesome.css">
+<script>
+    seajs.use('http://aralejs.org/tools/nico-helper.js');
+</script>
 </body>
 </html>
