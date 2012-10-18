@@ -1,6 +1,7 @@
 {
     "name": "position",
     "version": "1.1.0",
+    "tag": "utility",
     "homepage": "http://aralejs.org/position/",
     "description": "简单实用的定位工具。",
     "author": "pianyou <xingmin.zhu@alipay.com>",
