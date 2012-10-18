@@ -146,5 +146,11 @@ define(function(require) {
             expect(pinElement.css('left')).toBe('300px');
         });
 
+        test('support 0%+10px', function() {
+            Position.pin({ element: pinElement, x: '0%+20px', y: '0%+20px' }, { element:baseElement, x: 100, y: 100 });
+            expect(parseInt(pinElement.offset().top)).toBe(100);
+            expect(parseInt(pinElement.offset().left)).toBe(100);
+        });
+
     });
 });
