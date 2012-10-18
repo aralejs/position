@@ -97,8 +97,3 @@
 而导致 margin-top 失效，所以要尽量避免定位元素与基准元素相邻并在其之前。
 
 
-## 交流讨论
-
-欢迎创建
-[GitHub Issue](https://github.com/alipay/arale/issues/new)
-来提交反馈。
