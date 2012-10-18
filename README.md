@@ -8,7 +8,9 @@
 
 比如有目标元素 a 和基准元素 b ，先设定 a 的定位点为左上角，b 的定位点为中央。则分别描述为 { element: a, x: 0, y: 0 } 和 { element: b, x: '50%', y: '50%' }，然后将 a 的左上角定位到 b 的中央，就完成了定位。
 
-## API
+---
+
+## 使用说明
 
 ### pin `Position.pin(pinObject, [baseObject])`
 
