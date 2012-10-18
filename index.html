@@ -42,7 +42,7 @@
     <a href="history.html">历史</a>
     <a target="_blank" href="https://github.com/aralejs/position/">源码</a>
   </div>
-  <p class="entry-description">简单实用的定位工具。</p>
+  <p class="entry-description">简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。</p>
   <p class="entry-cdn" data-name="position"></p>
   
   <hr />
@@ -51,15 +51,13 @@
 <h2>演示</h2>
 <ul>
   <li><a href="./examples/">各类定位演示</a></li>
-</ul><p>将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。</p>
+</ul><h2 id="toc_0">定位原理</h2>
 <p>这个组件的定位原理是，通过两个对象分别描述定位元素及其定位点，然后将其定位点重合。</p>
 <p>比如有目标元素 a 和基准元素 b ，先设定 a 的定位点为左上角，b 的定位点为中央。则分别描述为 { element: a, x: 0, y: 0 } 和 { element: b, x: &#39;50%&#39;, y: &#39;50%&#39; }，然后将 a 的左上角定位到 b 的中央，就完成了定位。</p>
 
-<hr/>
+<h2 id="toc_1">使用说明</h2>
 
-<h2 id="toc_0">使用说明</h2>
-
-<h3 id="toc_1">pin <code>Position.pin(pinObject, [baseObject])</code></h3>
+<h3 id="toc_2">pin <code>Position.pin(pinObject, [baseObject])</code></h3>
 <p>基础定位方法，接收两个参数。</p>
 
 <ol>
@@ -77,7 +75,7 @@
 <pre><code>Position.pin({ element: a, x: -10, y: -10 });</code></pre></li>
 </ol>
 
-<h3 id="toc_2">center <code>Position.center(pinElement, [baseElement])</code></h3>
+<h3 id="toc_3">center <code>Position.center(pinElement, [baseElement])</code></h3>
 <p>居中定位，接收两个参数，将 pinElement 定位在 baseElement 元素的中央位置。</p>
 
 <ol>
@@ -85,7 +83,7 @@
 <li><p><code>baseElement</code>：基准定位节点，可选。缺省时表示将 pinElement 定位在屏幕中央。</p></li>
 </ol>
 
-<h3 id="toc_3">VIEWPORT <code>Position.VIEWPORT</code></h3>
+<h3 id="toc_4">VIEWPORT <code>Position.VIEWPORT</code></h3>
 <p>当前可视区域的伪元素，当需要相对于当前可视区域定位时，上述参数的 element 可传入 Position.VIEWPORT。</p>
 <p>比如相对于屏幕中央定位：</p>
 
@@ -97,7 +95,7 @@
 
 <pre><code>Position.center(a, Position.VIEWPORT);</code></pre>
 
-<h2 id="toc_4">最佳实践</h2>
+<h2 id="toc_5">最佳实践</h2>
 
 <ol>
 <li><p>定位元素到可视区域左上角</p>
@@ -123,7 +121,7 @@
 <pre><code>Position.center(a);</code></pre></li>
 </ol>
 
-<h2 id="toc_5">注意事项</h2>
+<h2 id="toc_6">注意事项</h2>
 
 <ul>
 <li>IE8 下，当文档流中定位元素在基准元素的相邻前方时，基准元素有可能会因为未 reflow
