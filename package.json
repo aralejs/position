@@ -2,8 +2,8 @@
     "name": "position",
     "version": "1.1.0",
     "homepage": "http://aralejs.org/position/",
-    "description": "定位工具组件",
-    "author": "afc163 <xingmin.zhu@alipay.com>",
+    "description": "简单实用的定位工具。",
+    "author": "pianyou <xingmin.zhu@alipay.com>",
     "repository": {
         "type": "git",
         "url": "https://github.com/aralejs/position.git"

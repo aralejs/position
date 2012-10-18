@@ -1,3 +1,9 @@
+# 各类定位演示
+
+- order: 1
+
+---
+
 <style>
 .elem1 {
     border:1px solid green;
