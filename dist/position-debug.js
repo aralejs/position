@@ -1,4 +1,4 @@
-define("#position/1.0.0/position-debug", ["$-debug"], function(require, exports) {
+define("arale/position/1.0.0/position-debug", ["$-debug"], function(require, exports) {
 
     // Position
     // --------
@@ -155,7 +155,7 @@ define("#position/1.0.0/position-debug", ["$-debug"], function(require, exports)
         // 将百分比转为像素值
         if (x.indexOf('%') !== -1) {
             //支持小数
-            x = x.replace(/(\d+\.?\d+)%/gi, function(m, d) {
+            x = x.replace(/(\d+(?:\.\d+)?)%/gi, function(m, d) {
                 return pinObject.size()[type] * (d / 100.0);
             });
         }
