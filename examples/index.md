@@ -8,6 +8,7 @@
 .elem1 {
     border:1px solid green;
     background-color:#C7FFBB;
+    z-index: 99;
 }
 .elem2 {
     border:20px solid #999;
