@@ -2,6 +2,8 @@
 
 ---
 
+[![Build Status](https://secure.travis-ci.org/aralejs/position.png)](https://travis-ci.org/aralejs/position)
+
 简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。
 
 ---
