@@ -142,20 +142,7 @@ seajs.use(['position'], function(Position) {
 ````
 
 
-## 9. 相对于自身定位 
-
-<div class="cell">
-    <div id="a9" class="elem1">目标元素a9</div>
-</div>
-
-````javascript
-seajs.use(['position'], function(Position) {
-    Position.pin('#a9', {element: '#a9', x: '100%', y: '-100%'});
-});
-````
-
-
-## 10. 定位fixed元素 
+## 9. 定位fixed元素 
 
 <div class="cell">
     <div id="a10" class="elem1" style="position:fixed;">目标元素a10</div>
