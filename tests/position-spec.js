@@ -54,6 +54,18 @@ define(function(require) {
             expect(pinElement.offset().left).to.equal(20);
         });
 
+        it('省略x参数：Position.pin(pinElement, { element:baseElement, x: "99px" })', function() {
+            Position.pin(pinElement, { element:baseElement, x: "99px" });
+            expect(pinElement.offset().top).to.equal(20);
+            expect(pinElement.offset().left).to.equal(119);
+        });
+
+        it('省略y参数：Position.pin(pinElement, { element:baseElement, y: "99px" })', function() {
+            Position.pin(pinElement, { element:baseElement, y: "99px" });
+            expect(pinElement.offset().top).to.equal(119);
+            expect(pinElement.offset().left).to.equal(20);
+        });
+
         it('带px的字符串参数：Position.pin(pinElement, { element:baseElement, x: "100px", y: "100px" })', function() {
             Position.pin({ element: pinElement, x: 0, y: 0 }, { element:baseElement, x: "100px", y: "100px" });
             expect(pinElement.offset().top).to.equal(120);
@@ -201,6 +213,23 @@ define(function(require) {
             Position.pin(pinElement, { element:baseElement, x: "0%", y: '0%' });
             expect(parseInt(pinElement.offset().top)).to.equal(20);
             expect(parseInt(pinElement.offset().left)).to.equal(20);
+        });
+
+        it('Position.VIEWPORT', function() {
+            expect(Position.VIEWPORT._id).to.equal('VIEWPORT');
+            expect(Position.VIEWPORT.nodeType).to.equal(1);
+        });
+
+        it('Position.VIEWPORT 作为第二个参数（简略）', function() {
+            Position.pin(pinElement, Position.VIEWPORT);        
+            expect(parseInt(pinElement.offset().top)).to.equal(0);
+            expect(parseInt(pinElement.offset().left)).to.equal(0);
+        });
+
+        it('Position.VIEWPORT 作为第二个参数（完整）', function() {
+            Position.pin(pinElement, {element: Position.VIEWPORT, x: 25, y: 30});        
+            expect(parseInt(pinElement.offset().top)).to.equal(30);
+            expect(parseInt(pinElement.offset().left)).to.equal(25);
         });
 
         it('fixed定位：', function() {
