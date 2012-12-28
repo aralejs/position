@@ -6,9 +6,24 @@
 
 <style>
 .elem1 {
-    border:1px solid green;
-    background-color:#C7FFBB;
     z-index: 99;
+    background-color: #7FBF4D;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7FBF4D), to(#63A62F));
+    background-image: -webkit-linear-gradient(top, #7FBF4D, #63A62F);
+    background-image: -moz-linear-gradient(top, #7FBF4D, #63A62F);
+    background-image: -ms-linear-gradient(top, #7FBF4D, #63A62F);
+    background-image: -o-linear-gradient(top, #7FBF4D, #63A62F);
+    background-image: linear-gradient(top, #7FBF4D, #63A62F);
+    border: 1px solid #63A62F;
+    border-bottom: 1px solid #5B992B;
+    box-shadow: inset 0 1px 0 0 #96CA6D;
+    color: white;
+    font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    line-height: 1;
+    padding: 7px 3px 8px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #4C9021;
+    opacity: 0.8;
 }
 .elem2 {
     border:20px solid #999;
