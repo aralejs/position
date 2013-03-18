@@ -15,10 +15,11 @@
   },
   "spm": {
     "alias": {
-      "$":"$"
+      "$": "$"
     },
-    "output": {
-      "position.js": ["position.js"]
-    }
+    "devAlias": {
+      "$": "jquery/jquery/1.7.2/jquery"
+    },
+    "output": ["position.js"]
   }
 }
