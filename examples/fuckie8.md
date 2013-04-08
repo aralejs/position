@@ -48,5 +48,4 @@ seajs.use(['position', 'jquery'], function(Position, $) {
     });
 });
 </script>
-
-
+````
