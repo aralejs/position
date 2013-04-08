@@ -1,6 +1,7 @@
 define(function(require) {
 
-    var Position = require('../src/position');
+    var expect = require('expect');
+    var Position = require('position');
     var $ = require('$');
 
     describe('position', function() {
