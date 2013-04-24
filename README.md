@@ -3,6 +3,7 @@
 ---
 
 [![Build Status](https://travis-ci.org/aralejs/position.png)](https://travis-ci.org/aralejs/position)
+[![Coverage Status](https://coveralls.io/repos/aralejs/position/badge.png?branch=master)](https://coveralls.io/r/aralejs/position)
 
 简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。
 
