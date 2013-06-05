@@ -39,11 +39,15 @@
     
     当 element 缺省时，表示 pinObject 相对屏幕可见区域的左上角定位。比如可以写成
         
-        Position.pin(a, { x: 10, y: 10 });    // 这样后一个参数可简单理解为偏移量
+    ```js
+    Position.pin(a, { x: 10, y: 10 });    // 这样后一个参数可简单理解为偏移量
+    ```
         
     或写成
         
-        Position.pin({ element: a, x: -10, y: -10 });
+    ```js
+    Position.pin({ element: a, x: -10, y: -10 });
+    ```
 
 
 ### center `Position.center(pinElement, [baseElement])`
@@ -60,46 +64,64 @@
 当前可视区域的伪元素，当需要相对于当前可视区域定位时，上述参数的 element 可传入 Position.VIEWPORT。
 
 比如相对于屏幕中央定位：
-
-    Position.pin(
-        { element: a, x: 'center', y: 'center' }, 
-        { element: Position.VIEWPORT, x: 'center', y: 'center' }
-    );
-
+    
+```js
+Position.pin(
+    { element: a, x: 'center', y: 'center' }, 
+    { element: Position.VIEWPORT, x: 'center', y: 'center' }
+);
+```
+    
 或写成
 
-    Position.center(a, Position.VIEWPORT);
+```js
+Position.center(a, Position.VIEWPORT);
+```
 
 
 ## 最佳实践
 
 1. 定位元素到可视区域左上角
 
-        Position.pin(a, { x: 0, y: 0 });    // 后一个参数可理解为偏移量
+    ```js
+    Position.pin(a, { x: 0, y: 0 });    // 后一个参数可理解为偏移量
+    ```
 
 2. 定位元素到基准元素位置向右偏移 20px
-    
-        Position.pin(a, { element: b, x: '20px', y: 0 });
+
+    ```js
+    Position.pin(a, { element: b, x: '20px', y: 0 });
+    ```
 
 3. 定位元素到基准元素下方 20px 的位置
-    
-        Position.pin(a, { element: b, x: 0, y: '100%+20px' });
+
+    ```js
+    Position.pin(a, { element: b, x: 0, y: '100%+20px' });
+    ```
 
 4. 定位元素到基准元素正中央
 
-        Position.center(a, b);
+    ```js
+    Position.center(a, b);
+    ```
     
 5. 定位元素到基准元素右方中间位置
     
-        Position.pin(a, { element: b, x: 'right', y: 'center' });
-    
+    ```js        
+    Position.pin(a, { element: b, x: 'right', y: 'center' });
+    ```
+
     或者
     
-        Position.pin(a, { element: b, x: '100%', y: '50%' });
+    ```js
+    Position.pin(a, { element: b, x: '100%', y: '50%' });
+    ```
 
 6. 定位元素到可视区域中央
 
-        Position.center(a);
+    ```js
+    Position.center(a);
+    ```
 
 
 ## 注意事项
