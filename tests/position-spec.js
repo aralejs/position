@@ -7,6 +7,8 @@ define(function(require) {
     describe('position', function() {
 
         var pinElement, baseElement, noopDiv;
+        
+        // reset mocha padding
         $(document.body).css({
             'margin': 0,
             'padding': 0
@@ -16,7 +18,7 @@ define(function(require) {
             pinElement = $('<div style="width:100px;height:100px;" id="pin-element">pinElement</div>').prependTo(document.body);
             // for ie6 bug
             noopDiv = $('<div></div>').prependTo(document.body);
-            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;" id="base-element">baseElement</div>').prependTo(document.body);            
+            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;" id="base-element">baseElement</div>').prependTo(document.body);
         });
 
         afterEach(function() {
@@ -249,6 +251,19 @@ define(function(require) {
             Position.pin({ element: pinElement, x: '0%+20px', y: '0%+20px' }, { element:baseElement, x: 100, y: 100 });
             expect(parseInt(pinElement.offset().top)).to.equal(100);
             expect(parseInt(pinElement.offset().left)).to.equal(100);
+        });
+
+        it('body 为相对定位的情况', function() {
+            $(document.body).css({
+                position: 'relative',
+                top: 50,
+                left: 100
+            });
+
+            Position.pin(pinElement, baseElement);
+            alert(1);
+            expect(parseInt(pinElement.offset().top)).to.equal(70);
+            expect(parseInt(pinElement.offset().left)).to.equal(120);
         });
 
     });

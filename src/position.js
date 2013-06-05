@@ -180,6 +180,9 @@ define(function(require, exports) {
     function getParentOffset(element) {
         var parent = element.offsetParent();
 
+        // IE7 下，body 子节点的 offsetParent 为 html 元素，其 offset 为
+        // { top: 2, left: 2 }，会导致定位差 2 像素，所以这里将 parent
+        // 转为 document.body
         if (parent[0] === document.documentElement) {
             parent = $(document.body);
         }
@@ -190,15 +193,19 @@ define(function(require, exports) {
         }
 
         // 获取 offsetParent 的 offset
-        // 注1：document.body 会默认带 8 像素的偏差
-        //
-        // 注2：IE7 下，body 子节点的 offsetParent 为 html 元素，其 offset 为
-        // { top: 2, left: 2 }，会导致定位差 2 像素，所以这里将 parent
-        // 转为 document.body
-        //
-        // 以上两种情况直接赋为 0
-        var offset = (parent[0] === document.body) ?
-            { left: 0, top: 0 } : parent.offset();
+        // document.body 会默认带 8 像素的 margin 偏差
+        // http://jsfiddle.net/afc163/s5vWT/
+        var offset = parent.offset();
+
+        // 当 body 的 position 为 relative 或 absolute 时
+        // jQuery.offset 方法无法正确获取 body 的 top 和 left 偏移值
+        // http://jsfiddle.net/afc163/gMAcp/
+        // 需要手动修正
+        if (parent[0] === document.body &&
+            parent.css('position') !== 'static') {
+            offset.top += numberize(parent.css('top'));
+            offset.left += numberize(parent.css('left'));
+        }
 
         // 根据基准元素 offsetParent 的 border 宽度，来修正 offsetParent 的基准位置
         offset.top += numberize(parent.css('border-top-width'));
