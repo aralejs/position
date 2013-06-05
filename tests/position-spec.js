@@ -2,7 +2,7 @@ define(function(require) {
 
     var expect = require('expect');
     var Position = require('position');
-    var $ = require('$');
+    window.$ = require('$');
 
     describe('position', function() {
 
@@ -253,17 +253,54 @@ define(function(require) {
             expect(parseInt(pinElement.offset().left)).to.equal(100);
         });
 
-        it('body 为相对定位的情况', function() {
+        it('body 有 margin 的情况', function() {
             $(document.body).css({
-                position: 'relative',
-                top: 50,
-                left: 100
+                marginTop: 50,
+                marginLeft: 50
             });
 
             Position.pin(pinElement, baseElement);
-            alert(1);
-            expect(parseInt(pinElement.offset().top)).to.equal(70);
-            expect(parseInt(pinElement.offset().left)).to.equal(120);
+            expect(pinElement.offset().top).to.equal(baseElement.offset().top);
+            expect(pinElement.offset().left).to.equal(baseElement.offset().left);
+
+            $(document.body).css({
+                margin: 0
+            });
+        });
+
+        it('body 是 absolute 的情况', function() {
+            $(document.body).css({
+                position: 'absolute',
+                top: 20,
+                left: 20
+            });
+            Position.pin(pinElement, baseElement);
+            expect(parseInt(pinElement.offset().top)).to.equal(40);
+            expect(parseInt(pinElement.offset().left)).to.equal(40);
+
+            $(document.body).css({
+                position: '',
+                top: '',
+                left: ''
+            });
+        });
+
+        it('body 是 relative 的情况', function() {
+            $(document.body).css({
+                position: 'relative',
+                top: 20,
+                left: 20
+            });
+
+            Position.pin(pinElement, baseElement);
+            expect(parseInt(pinElement.offset().top)).to.equal(40);
+            expect(parseInt(pinElement.offset().left)).to.equal(40);
+
+            $(document.body).css({
+                position: '',
+                top: '',
+                left: ''
+            });
         });
 
     });

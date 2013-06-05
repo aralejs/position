@@ -115,7 +115,7 @@ define(function(require, exports) {
                 };
             }
             else {
-                return $(element).offset();
+                return getOffset($(element)[0]);
             }
         };
 
@@ -193,20 +193,20 @@ define(function(require, exports) {
         }
 
         // 获取 offsetParent 的 offset
-        // document.body 会默认带 8 像素的 margin 偏差
-        // http://jsfiddle.net/afc163/s5vWT/
-        var offset = parent.offset();
+        var offset;
 
-        // 当 body 的 position 为 relative 或 absolute 时
-        // jQuery.offset 方法无法正确获取 body 的 top 和 left 偏移值
-        // http://jsfiddle.net/afc163/gMAcp/
-        // 需要手动修正
+        // 当 offsetParent 为 body，
+        // 而且 body 的 position 是 static 时
+        // 元素并不按照 body 来定位，而是按 document 定位
+        // http://jsfiddle.net/afc163/hN9Tc/2/
+        // 因此这里的偏移值直接设为 0 0
         if (parent[0] === document.body &&
-            parent.css('position') !== 'static') {
-            offset.top += numberize(parent.css('top'));
-            offset.left += numberize(parent.css('left'));
+            parent.css('position') === 'static') {
+                offset = { top:0, left: 0 };
+        } else {
+            offset = getOffset(parent[0]);
         }
-
+            
         // 根据基准元素 offsetParent 的 border 宽度，来修正 offsetParent 的基准位置
         offset.top += numberize(parent.css('border-top-width'));
         offset.left += numberize(parent.css('border-left-width'));
@@ -220,6 +220,26 @@ define(function(require, exports) {
 
     function toElement(element) {
         return $(element)[0];
+    }
+
+    // fix jQuery 1.7.2 offset
+    // document.body 的 position 是 absolute 或 relative 时
+    // jQuery.offset 方法无法正确获取 body 的偏移值
+    //   -> http://jsfiddle.net/afc163/gMAcp/
+    // jQuery 1.9.1 已经修正了这个问题
+    //   -> http://jsfiddle.net/afc163/gMAcp/1/
+    // 这里先实现一份
+    // 参照 kissy 和 jquery 1.9.1
+    //   -> https://github.com/kissyteam/kissy/blob/master/src/dom/sub-modules/base/src/base/offset.js#L366 
+    //   -> https://github.com/jquery/jquery/blob/1.9.1/src/offset.js#L28
+    function getOffset(element) {
+        var box = element.getBoundingClientRect(),
+            x = box.left, y = box.top,
+            docElem = document.documentElement;
+        x -= docElem.clientLeft || document.body.clientLeft || 0;
+        y -= docElem.clientTop || document.body.clientTop || 0;
+
+        return { left: x, top: y };
     }
 
 });
