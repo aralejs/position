@@ -6,7 +6,7 @@ define("arale/position/1.0.1/position-debug", [ "$-debug" ], function(require, e
     var Position = exports, VIEWPORT = {
         _id: "VIEWPORT",
         nodeType: 1
-    }, $ = require("$-debug"), isPinFixed = false, isIE6 = $.browser.msie && $.browser.version == 6;
+    }, $ = require("$-debug"), isPinFixed = false, ua = (window.navigator.userAgent || "").toLowerCase(), isIE6 = ua.indexOf("msie 6") !== -1;
     // 将目标元素相对于基准元素进行定位
     // 这是 Position 的基础方法，接收两个参数，分别描述了目标元素和基准元素的定位点
     Position.pin = function(pinObject, baseObject) {
