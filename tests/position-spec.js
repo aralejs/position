@@ -2,11 +2,13 @@ define(function(require) {
 
     var expect = require('expect');
     var Position = require('position');
-    var $ = require('$');
+    window.$ = require('$');
 
     describe('position', function() {
 
         var pinElement, baseElement, noopDiv;
+        
+        // reset mocha padding
         $(document.body).css({
             'margin': 0,
             'padding': 0
@@ -16,7 +18,7 @@ define(function(require) {
             pinElement = $('<div style="width:100px;height:100px;" id="pin-element">pinElement</div>').prependTo(document.body);
             // for ie6 bug
             noopDiv = $('<div></div>').prependTo(document.body);
-            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;" id="base-element">baseElement</div>').prependTo(document.body);            
+            baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;" id="base-element">baseElement</div>').prependTo(document.body);
         });
 
         afterEach(function() {
@@ -249,6 +251,56 @@ define(function(require) {
             Position.pin({ element: pinElement, x: '0%+20px', y: '0%+20px' }, { element:baseElement, x: 100, y: 100 });
             expect(parseInt(pinElement.offset().top)).to.equal(100);
             expect(parseInt(pinElement.offset().left)).to.equal(100);
+        });
+
+        it('body 有 margin 的情况', function() {
+            $(document.body).css({
+                marginTop: 50,
+                marginLeft: 50
+            });
+
+            Position.pin(pinElement, baseElement);
+            expect(pinElement.offset().top).to.equal(baseElement.offset().top);
+            expect(pinElement.offset().left).to.equal(baseElement.offset().left);
+
+            $(document.body).css({
+                margin: 0
+            });
+        });
+
+        it('body 是 absolute 的情况', function() {
+            $(document.body).css({
+                position: 'absolute',
+                top: 20,
+                left: 20
+            });
+            Position.pin(pinElement, baseElement);
+            expect(parseInt(pinElement.offset().top)).to.equal(40);
+            expect(parseInt(pinElement.offset().left)).to.equal(40);
+
+            $(document.body).css({
+                position: '',
+                top: '',
+                left: ''
+            });
+        });
+
+        it('body 是 relative 的情况', function() {
+            $(document.body).css({
+                position: 'relative',
+                top: 20,
+                left: 20
+            });
+
+            Position.pin(pinElement, baseElement);
+            expect(parseInt(pinElement.offset().top)).to.equal(40);
+            expect(parseInt(pinElement.offset().left)).to.equal(40);
+
+            $(document.body).css({
+                position: '',
+                top: '',
+                left: ''
+            });
         });
 
     });

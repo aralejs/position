@@ -39,8 +39,8 @@
 ## 1. 基本情况
 
 <div class="cell">
-    <div id="a1" class="elem1">目标元素a1</div>
     <div id="b1" class="elem2">基准元素b1</div>
+    <div id="a1" class="elem1">目标元素a1</div>
 </div>
 
 ````javascript
