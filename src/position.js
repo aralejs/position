@@ -9,7 +9,8 @@ define(function(require, exports) {
         VIEWPORT = { _id: 'VIEWPORT', nodeType: 1 },
         $ = require('$'),
         isPinFixed = false,
-        isIE6 = $.browser.msie && $.browser.version == 6.0;
+        ua = (window.navigator.userAgent || "").toLowerCase(),
+        isIE6 = ua.indexOf("msie 6") !== -1;
 
 
     // 将目标元素相对于基准元素进行定位
