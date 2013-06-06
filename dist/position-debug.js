@@ -189,12 +189,17 @@ define("arale/position/1.0.1/position-debug", [ "$-debug" ], function(require, e
     //   -> https://github.com/kissyteam/kissy/blob/master/src/dom/sub-modules/base/src/base/offset.js#L366 
     //   -> https://github.com/jquery/jquery/blob/1.9.1/src/offset.js#L28
     function getOffset(element) {
-        var box = element.getBoundingClientRect(), x = box.left, y = box.top, docElem = document.documentElement;
-        x -= docElem.clientLeft || document.body.clientLeft || 0;
-        y -= docElem.clientTop || document.body.clientTop || 0;
+        var box = element.getBoundingClientRect(), docElem = document.documentElement, doc = element && element.ownerDocument, win;
+        if (!doc) {
+            return;
+        }
+        win = getWindow(doc);
         return {
-            left: x,
-            top: y
+            left: box.left + (win.pageXOffset || docElem.scrollLeft) - (docElem.clientLeft || document.body.clientLeft || 0),
+            top: box.top + (win.pageYOffset || docElem.scrollTop) - (docElem.clientTop || document.body.clientTop || 0)
         };
+    }
+    function getWindow(elem) {
+        return $.isWindow(elem) ? elem : elem.nodeType === 9 ? elem.defaultView || elem.parentWindow : false;
     }
 });

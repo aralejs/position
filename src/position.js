@@ -235,12 +235,23 @@ define(function(require, exports) {
     //   -> https://github.com/jquery/jquery/blob/1.9.1/src/offset.js#L28
     function getOffset(element) {
         var box = element.getBoundingClientRect(),
-            x = box.left, y = box.top,
-            docElem = document.documentElement;
-        x -= docElem.clientLeft || document.body.clientLeft || 0;
-        y -= docElem.clientTop || document.body.clientTop || 0;
+            docElem = document.documentElement,
+            doc = element && element.ownerDocument,
 
-        return { left: x, top: y };
+            win;
+
+        if (!doc) {
+            return;
+        }
+        win = getWindow(doc);
+
+        // < ie8 不支持 win.pageXOffset, 则使用 scrollLeft
+        return {
+            left: box.left + ( win.pageXOffset || docElem.scrollLeft ) - ( docElem.clientLeft || document.body.clientLeft  || 0 ),
+            top: box.top  + ( win.pageYOffset || docElem.scrollTop )  - ( docElem.clientTop || document.body.clientTop  || 0 ) };
     }
 
+    function getWindow(elem) {
+        return $.isWindow( elem ) ? elem : elem.nodeType === 9 ? elem.defaultView || elem.parentWindow : false;
+    }
 });
