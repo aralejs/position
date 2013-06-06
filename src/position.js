@@ -233,14 +233,29 @@ define(function(require, exports) {
     // 参照 kissy 和 jquery 1.9.1
     //   -> https://github.com/kissyteam/kissy/blob/master/src/dom/sub-modules/base/src/base/offset.js#L366 
     //   -> https://github.com/jquery/jquery/blob/1.9.1/src/offset.js#L28
-    function getOffset(element) {
+    function getOffset1(element) {
         var box = element.getBoundingClientRect(),
-            x = box.left, y = box.top,
-            docElem = document.documentElement;
-        x -= docElem.clientLeft || document.body.clientLeft || 0;
-        y -= docElem.clientTop || document.body.clientTop || 0;
+            docElem = document.documentElement,
+            win = $.isWindow( docElem ) ? docElem : docElem.nodeType === 9 ? docElem.defaultView || docElem.parentWindow : false;
 
-        return { left: x, top: y };
+        // < ie8 不支持 win.pageXOffset, 则使用 scrollLeft
+        return {
+            left: box.left + ( win.pageXOffset || docElem.scrollLeft ) - ( docElem.clientLeft || document.body.clientLeft  || 0 ),
+            top: box.top  + ( win.pageYOffset || docElem.scrollTop )  - ( docElem.clientTop || document.body.clientTop  || 0 ) };
     }
 
+    function getOffset(element) {
+        var box = element.getBoundingClientRect(),
+            docElem = document.documentElement,
+            win = getWindow(document);
+
+        // < ie8 不支持 win.pageXOffset, 则使用 scrollLeft
+        return {
+            left: box.left + ( win.pageXOffset || docElem.scrollLeft ) - ( docElem.clientLeft || document.body.clientLeft  || 0 ),
+            top: box.top  + ( win.pageYOffset || docElem.scrollTop )  - ( docElem.clientTop || document.body.clientTop  || 0 ) };
+    }
+
+    function getWindow(elem) {
+        return $.isWindow( elem ) ? elem : elem.nodeType === 9 ? elem.defaultView || elem.parentWindow : false;
+    }
 });

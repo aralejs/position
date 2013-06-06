@@ -303,6 +303,16 @@ define(function(require) {
             });
         });
 
+        it("scroll 1000px 之后", function() {
+            var temp = $("<div style='height:1000px;'></div>").prependTo(document.body);
+            $(document).scrollTop(500);
+
+            Position.pin(pinElement, baseElement);
+            expect(parseInt(pinElement.offset().top)>1000).to.be(true);
+
+            temp.remove();
+        });
+
     });
 });
 
