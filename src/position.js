@@ -236,22 +236,11 @@ define(function(require, exports) {
     function getOffset(element) {
         var box = element.getBoundingClientRect(),
             docElem = document.documentElement,
-            doc = element && element.ownerDocument,
-
-            win;
-
-        if (!doc) {
-            return;
-        }
-        win = getWindow(doc);
+            win = $.isWindow( docElem ) ? docElem : docElem.nodeType === 9 ? docElem.defaultView || docElem.parentWindow : false;
 
         // < ie8 不支持 win.pageXOffset, 则使用 scrollLeft
         return {
             left: box.left + ( win.pageXOffset || docElem.scrollLeft ) - ( docElem.clientLeft || document.body.clientLeft  || 0 ),
             top: box.top  + ( win.pageYOffset || docElem.scrollTop )  - ( docElem.clientTop || document.body.clientTop  || 0 ) };
-    }
-
-    function getWindow(elem) {
-        return $.isWindow( elem ) ? elem : elem.nodeType === 9 ? elem.defaultView || elem.parentWindow : false;
     }
 });
