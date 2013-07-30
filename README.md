@@ -21,7 +21,7 @@
 
 定位原理如下图，x 代表横轴，y 代表纵轴。
 
-![定位原理](https://i.alipayobjects.com/e/201307/oNcpd6WJB.png)
+![定位原理](https://i.alipayobjects.com/e/201307/oOlV3bUVx.png)
 
 ## 使用说明
 
