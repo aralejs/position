@@ -11,11 +11,12 @@ define(function(require) {
         // reset mocha padding
         $(document.body).css({
             'margin': 0,
-            'padding': 0
+            'padding': 0,
+            'overflow': 'scroll'
         });
 
         beforeEach(function() {
-            pinElement = $('<div style="width:100px;height:100px;" id="pin-element">pinElement</div>').prependTo(document.body);
+            pinElement = $('<div style="width:100px;height:100px;position:absolute;top:0;left:0;" id="pin-element">pinElement</div>').prependTo(document.body);
             // for ie6 bug
             noopDiv = $('<div></div>').prependTo(document.body);
             baseElement = $('<div style="margin:20px;border:5px solid #000;padding:20px;width:200px;height:200px;" id="base-element">baseElement</div>').prependTo(document.body);
@@ -142,7 +143,7 @@ define(function(require) {
             expect(($(window).outerHeight()-100)/2).to.be.greaterThan(pinElement.offset().top-0.51);
             expect(($(window).outerHeight()-100)/2).to.be.lessThan(pinElement.offset().top+0.51);
             expect(($(window).outerWidth()-100)/2).to.be.greaterThan(pinElement.offset().left-0.51);
-            expect(($(window).outerWidth()-100)/2).to.be.lessThan(pinElement.offset().left+0.51); 
+            expect(($(window).outerWidth()-100)/2).to.be.lessThan(pinElement.offset().left+0.51);
         });
 
         it('baseElement绝对定位：', function() {
