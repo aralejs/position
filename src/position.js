@@ -157,7 +157,28 @@ define(function(require, exports) {
         if (x.indexOf('%') !== -1) {
             //支持小数
             x = x.replace(/(\d+(?:\.\d+)?)%/gi, function(m, d) {
-                return pinObject.size()[type] * (d / 100.0);
+                // fixed: 当绝对定位元素在文档边缘，而且没有显式声明宽度的时候，行内元素可能会折行，导致计算宽度不正确
+                // http://jsfiddle.net/GuA2m/3/
+                var element = $(pinObject.element);
+                var left = element.css("left");
+                var top = element.css("top");
+                var visibility = element.css("visibility");
+
+                $(pinObject.element).css({
+                    "left": "auto",
+                    "top": "auto",
+                    "visibility": "hidden"
+                });
+
+                var result = pinObject.size()[type] * (d / 100);
+
+                $(pinObject.element).css({
+                    "left": left,
+                    "top": top,
+                    "visibility": visibility
+                });
+
+                return result;
             });
         }
 
