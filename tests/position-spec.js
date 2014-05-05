@@ -321,8 +321,6 @@ define(function(require) {
             expect(pinElement.offset().left).to.equal(0);
         });
 
-
-
     });
 });
 
