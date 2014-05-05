@@ -21,9 +21,15 @@ define(function(require, exports) {
         pinObject = normalize(pinObject);
         baseObject = normalize(baseObject);
 
+        // if pinObject.element is not present
+        var element = pinObject.element;
+        if (element === VIEWPORT || element._id === 'VIEWPORT') {
+          return;
+        }
+
         // 设定目标元素的 position 为绝对定位
         // 若元素的初始 position 不为 absolute，会影响元素的 display、宽高等属性
-        var pinElement = $(pinObject.element);
+        var pinElement = $(element);
 
         if (pinElement.css('position') !== 'fixed' || isIE6) {
             pinElement.css('position', 'absolute');
@@ -207,7 +213,7 @@ define(function(require, exports) {
         } else {
             offset = getOffset(parent[0]);
         }
-            
+
         // 根据基准元素 offsetParent 的 border 宽度，来修正 offsetParent 的基准位置
         offset.top += numberize(parent.css('border-top-width'));
         offset.left += numberize(parent.css('border-left-width'));
@@ -231,7 +237,7 @@ define(function(require, exports) {
     //   -> http://jsfiddle.net/afc163/gMAcp/1/
     // 这里先实现一份
     // 参照 kissy 和 jquery 1.9.1
-    //   -> https://github.com/kissyteam/kissy/blob/master/src/dom/sub-modules/base/src/base/offset.js#L366 
+    //   -> https://github.com/kissyteam/kissy/blob/master/src/dom/sub-modules/base/src/base/offset.js#L366
     //   -> https://github.com/jquery/jquery/blob/1.9.1/src/offset.js#L28
     function getOffset(element) {
         var box = element.getBoundingClientRect(),

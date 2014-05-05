@@ -314,6 +314,13 @@ define(function(require) {
             temp.remove();
         });
 
+        it('nonexistent element：Position.pin($("#nonexistent-element"), { element:"#base-element", x: "100px", y: "100px" })', function() {
+            Position.pin($('#nonexistent-element'), { element:'#base-element', x: "100px", y: "100px" });
+            // do nothing
+            expect(pinElement.offset().top).to.equal(0);
+            expect(pinElement.offset().left).to.equal(0);
+        });
+
     });
 });
 
