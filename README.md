@@ -2,6 +2,7 @@
 
 ---
 
+[![spm package](http://spmjs.io/badge/arale-position)](http://spmjs.io/package/arale-position)
 [![Build Status](https://travis-ci.org/aralejs/position.png)](https://travis-ci.org/aralejs/position)
 [![Coverage Status](https://coveralls.io/repos/aralejs/position/badge.png?branch=master)](https://coveralls.io/r/aralejs/position)
 
@@ -15,7 +16,8 @@
 ## 安装
 
 ```
-$ spm install arale/position
+$ npm install spm@ninja -g
+$ spm install position
 ```
 
 ## 定位原理
