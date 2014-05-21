@@ -1,29 +1,29 @@
 {
-    "name": "arale-position",
-    "version": "1.1.0",
-    "keywords": ["utility"],
-    "homepage": "http://aralejs.org/position/",
-    "description": "简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。",
-    "author": "偏右 <afc163@gmail.com>",
-    "maintainers": [
-        "偏右 <afc163@gmail.com>",
-        "贯高 <sakura9515@gmail.com>"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/aralejs/position.git"
+  "name": "arale-position",
+  "version": "1.1.0",
+  "keywords": ["utility"],
+  "homepage": "http://aralejs.org/position/",
+  "description": "简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。",
+  "author": "偏右 <afc163@gmail.com>",
+  "maintainers": [
+    "偏右 <afc163@gmail.com>",
+    "贯高 <sakura9515@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/position.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/position/issues"
+  },
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "jquery": "1.7.2"
     },
-    "bugs": {
-        "url": "https://github.com/aralejs/position/issues"
+    "devDependencies": {
+      "expect.js": "0.3.1"
     },
-    "spm": {
-        "main": "index.js",
-        "dependencies": {
-          "jquery": "1.7.2"
-        },
-        "devDependencies": {
-          "expect.js": "0.3.1"
-        },
-        "buildArgs": "--ignore jquery"
-    }
+    "buildArgs": "--ignore jquery"
+  }
 }
