@@ -28,7 +28,7 @@ describe('position', function() {
 
     it('相对屏幕定位：Position.pin(pinElement, { x: 100, y: 100 })', function() {
         Position.pin(pinElement, { x: 100, y: 100 });
-        expect(pinElement.offset().top).to.equal(100);
+        expect(pinElement.offset().top).to.equal(102);
         expect(pinElement.offset().left).to.equal(100);
     });
 
