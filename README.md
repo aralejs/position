@@ -16,8 +16,8 @@
 ## 安装
 
 ```
-$ npm install spm@ninja -g
-$ spm install arale-position
+$ npm install spm -g
+$ spm install position
 ```
 
 ## 定位原理
