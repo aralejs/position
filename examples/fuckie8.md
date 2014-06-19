@@ -35,7 +35,7 @@
 <div id="b1" class="elem2">基准元素b1</div>
 
 <script>
-seajs.use(['position', 'jquery'], function(Position, $) {
+seajs.use(['index', 'jquery'], function(Position, $) {
     $(function() {
         var a1 = $('#a1'),
             b1 = $('#b1');

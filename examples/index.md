@@ -44,7 +44,7 @@
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin('#a1', {element: '#b1', x: '50px', y: '50px'});
 });
 ````
@@ -59,7 +59,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin('#a2', {element: '#b2', x: 50, y: 50});
 });
 ````
@@ -73,7 +73,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin({element: '#a3', x: -50, y: -50}, {element: '#b3'});
 });
 ````
@@ -87,7 +87,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin({element: '#a4', x: 'center', y: '50%'}, {element: '#b4', x: '100%', y: '50%'});
 });
 ````
@@ -101,7 +101,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.center('#a5', '#b5');
 });
 ````
@@ -115,7 +115,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin('#a6', {x: 50,y: 50});
 
     document.getElementById('J_rePosition6').onclick = function() {
@@ -133,7 +133,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.center('#a7');
 
     document.getElementById('J_rePosition7').onclick = function() {
@@ -151,7 +151,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin('#a8', {element: '#b8', x: '100%+50px', y: '50%-50'});
 });
 ````
@@ -164,7 +164,7 @@ seajs.use(['position'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['position'], function(Position) {
+seajs.use(['index'], function(Position) {
     Position.pin('#a10', { x: 400, y: 0 });
 });
 ````
