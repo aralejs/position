@@ -2,7 +2,7 @@
 
 ---
 
-[![spm package](http://spmjs.io/badge/arale-position)](http://spmjs.io/package/arale-position)
+[![spm package](http://spmjs.io/badge/position)](http://spmjs.io/package/position)
 [![Build Status](https://travis-ci.org/aralejs/position.png)](https://travis-ci.org/aralejs/position)
 [![Coverage Status](https://coveralls.io/repos/aralejs/position/badge.png?branch=master)](https://coveralls.io/r/aralejs/position)
 
