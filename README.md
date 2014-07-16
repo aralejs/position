@@ -139,8 +139,3 @@ Position.center(a, Position.VIEWPORT);
 ## 注意事项
 
  - IE8 下，当文档流中定位元素在基准元素的相邻前方，并且不是body的第一个元素时，基准元素有可能会因为未 reflow 而导致 margin-top 失效，所以要尽量避免定位元素与基准元素相邻并在其之前。
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/position/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

@@ -168,5 +168,3 @@ seajs.use(['index'], function(Position) {
     Position.pin('#a10', { x: 400, y: 0 });
 });
 ````
-
-

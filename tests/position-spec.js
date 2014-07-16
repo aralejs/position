@@ -1,6 +1,6 @@
 var expect = require('expect.js');
 var Position = require('../index.js');
-window.$ = require('jquery');
+var $ = require('jquery');
 
 describe('position', function() {
 
