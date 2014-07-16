@@ -5,7 +5,7 @@
 ## 1.1.0
 
 `improved` 升级到 spm@3.x 规范。
-
+`fixed` pinElement 不存在时不再报错。https://github.com/aralejs/position/pull/11
 
 ## 1.0.1
 
