@@ -19,4 +19,5 @@ Thumbs.db
 build
 _site
 sea-modules
+spm_modules
 .cache
