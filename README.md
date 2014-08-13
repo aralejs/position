@@ -3,11 +3,10 @@
 ---
 
 [![spm package](http://spmjs.io/badge/position)](http://spmjs.io/package/position)
-[![Build Status](https://travis-ci.org/aralejs/position.png)](https://travis-ci.org/aralejs/position)
-[![Coverage Status](https://coveralls.io/repos/aralejs/position/badge.png?branch=master)](https://coveralls.io/r/aralejs/position)
+[![Build Status](https://img.shields.io/travis/aralejs/position.svg?style=flat)](https://travis-ci.org/aralejs/position)
+[![Coverage Status](https://img.shields.io/coveralls/aralejs/position.svg?style=flat)](https://coveralls.io/r/aralejs/position)
 
 简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。
-
 
 <span style="font-size:100px;line-height:1;color:#619EE8;">⿻</span>
 
