@@ -1,7 +1,7 @@
 {
   "name": "position",
   "version": "1.1.0",
-  "keywords": ["utility"],
+  "keywords": ["utility", "arale"],
   "homepage": "http://aralejs.org/position/",
   "description": "简单实用的定位工具，将一个 DOM 节点相对于另一个 DOM 节点进行定位操作。",
   "author": "偏右 <afc163@gmail.com>",
