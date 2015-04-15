@@ -44,8 +44,11 @@
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin('#a1', {element: '#b1', x: '50px', y: '50px'});
+var position = require('../index');
+position.pin('#a1', {
+  element: '#b1',
+  x: '50px',
+  y: '50px'
 });
 ````
 
@@ -59,8 +62,11 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin('#a2', {element: '#b2', x: 50, y: 50});
+var position = require('../index');
+position.pin('#a2', {
+  element: '#b2',
+  x: 50,
+  y: 50
 });
 ````
 
@@ -73,8 +79,13 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin({element: '#a3', x: -50, y: -50}, {element: '#b3'});
+var position = require('../index');
+position.pin({
+  element: '#a3',
+  x: -50,
+  y: -50
+}, {
+  element: '#b3'
 });
 ````
 
@@ -87,8 +98,15 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin({element: '#a4', x: 'center', y: '50%'}, {element: '#b4', x: '100%', y: '50%'});
+var position = require('../index');
+position.pin({
+  element: '#a4',
+  x: 'center',
+  y: '50%'
+}, {
+  element: '#b4',
+  x: '100%',
+  y: '50%'
 });
 ````
 
@@ -101,9 +119,8 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.center('#a5', '#b5');
-});
+var position = require('../index');
+position.center('#a5', '#b5');
 ````
 
 
@@ -111,17 +128,22 @@ seajs.use(['index'], function(Position) {
 
 <div class="cell">
     <div id="a6" class="elem1">目标元素a6</div>
-    <input type="button" id="J_rePosition6" value="点击重定位">
+    <input type="button" id="J_reposition6" value="点击重定位">
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin('#a6', {x: 50,y: 50});
-
-    document.getElementById('J_rePosition6').onclick = function() {
-        Position.pin('#a6', {x: 50,y: 50});
-    };
+var position = require('../index');
+position.pin('#a6', {
+  x: 50,
+  y: 50
 });
+
+document.getElementById('J_reposition6').onclick = function() {
+  position.pin('#a6', {
+    x: 50,
+    y: 50
+  });
+};
 ````
 
 
@@ -129,17 +151,16 @@ seajs.use(['index'], function(Position) {
 
 <div class="cell">
     <div id="a7" class="elem1">目标元素a7</div>
-    <input type="button" id="J_rePosition7" value="点击重定位">
+    <input type="button" id="J_reposition7" value="点击重定位">
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.center('#a7');
+var position = require('../index');
+position.center('#a7');
 
-    document.getElementById('J_rePosition7').onclick = function() {
-        Position.center('#a7');
-    };
-});
+document.getElementById('J_reposition7').onclick = function() {
+    position.center('#a7');
+};
 ````
 
 
@@ -151,8 +172,11 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin('#a8', {element: '#b8', x: '100%+50px', y: '50%-50'});
+var position = require('../index');
+position.pin('#a8', {
+  element: '#b8',
+  x: '100%+50px',
+  y: '50%-50'
 });
 ````
 
@@ -164,7 +188,9 @@ seajs.use(['index'], function(Position) {
 </div>
 
 ````javascript
-seajs.use(['index'], function(Position) {
-    Position.pin('#a10', { x: 400, y: 0 });
+var position = require('../index');
+position.pin('#a10', {
+  x: 400,
+  y: 0
 });
 ````
