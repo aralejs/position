@@ -2,7 +2,7 @@
 
 ---
 
-[![spm package](http://spmjs.io/badge/position)](http://spmjs.io/package/position)
+[![npm package](https://img.shields.io/npm/v/position.svg?style=flat-square)](https://www.npmjs.org/package/position)
 [![Build Status](https://img.shields.io/travis/aralejs/position.svg?style=flat)](https://travis-ci.org/aralejs/position)
 [![Coverage Status](https://img.shields.io/coveralls/aralejs/position.svg?style=flat)](https://coveralls.io/r/aralejs/position)
 
