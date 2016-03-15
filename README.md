@@ -15,8 +15,7 @@
 ## 安装
 
 ```bash
-$ npm install spm -g
-$ spm install position
+$ npm install position
 ```
 
 ## 定位原理
